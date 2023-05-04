@@ -1,0 +1,14 @@
+%{
+#include<stdio.h>
+#include<conio.h>
+%}
+%%
+[0-9]+ {printf("\n it is a digit\n");}
+.+ {printf("\n it is not a digit\n");}
+%%
+int yywrap(){}
+int main()
+{
+yylex();
+return 0;
+}
