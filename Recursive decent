@@ -1,0 +1,51 @@
+#include<stdio.h>
+#include<string.h>
+int c=0;
+char p[20];
+void s();
+void l();
+void lprime();
+void s(){
+if(p[c]=='a')
+{
+    c++;
+}
+else if(p[c]=='(')
+{
+ c++;
+ l();
+ if(p[c]==')')
+ {
+     c++;
+ }
+ else
+ {
+     printf("Invalid");
+ }
+ }
+}
+ void l()
+ {
+     s();
+     lprime();
+ }
+ void lprime()
+{
+    if(p[c]==',')
+    {
+        c++;
+        s();
+        lprime();
+    }
+}
+int main()
+{
+    printf("Recursive decent parse\n");
+    printf("Enter the input string:");
+    scanf("%s",p);
+    s();
+    if(p[c]=='$')
+    printf("The string is accepted.");
+    else
+    printf("The string is rejected.");
+}
